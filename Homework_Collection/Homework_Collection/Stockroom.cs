@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Homework_Collection
 {
-    internal class Stockroom<TmyType> : IEnumerable<TmyType>, IEnumerator<TmyType>
+    class Stockroom<TmyType> : IEnumerable<TmyType>, IEnumerator<TmyType>
     {
         private LinkedList<TmyType> stuff = new LinkedList<TmyType>();
         private LinkedListNode<TmyType> stuffNode;
@@ -22,12 +22,6 @@ namespace Homework_Collection
         public void Dispose()
         {
 
-        }
-
-        public IEnumerator GetEnumerator()
-        {
-            stuffNode = null;
-            return this;
         }
 
         public bool MoveNext()
@@ -63,9 +57,15 @@ namespace Homework_Collection
             stuff.Remove(stuffNode);
         }
 
-       IEnumerator<TmyType> IEnumerable<TmyType>.GetEnumerator()
+        public IEnumerator<TmyType> GetEnumerator()
         {
-            throw new NotImplementedException();
+            stuffNode = null;
+            return this;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

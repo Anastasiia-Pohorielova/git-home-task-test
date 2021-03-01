@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Homework_Collection
 {
@@ -7,9 +8,12 @@ namespace Homework_Collection
         static void Main(string[] args)
         {
             Stockroom<string> myStock = new Stockroom<string>();
+
+
             myStock.Add("Green Bottle");
             myStock.Add("White Bottle");
             myStock.Add("Brown Bottle");
+            
 
             foreach (var item in myStock)
             {
